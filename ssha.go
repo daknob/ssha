@@ -28,7 +28,7 @@ func NewHash(in []byte) ([]byte, error) {
 	sha.Write(in)
 	sha.Write(salt)
 
-	return sha.Sum(nil), nil
+	return append(sha.Sum(nil)[:], salt[:]...), nil
 }
 
 /*
